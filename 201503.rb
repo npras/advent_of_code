@@ -28,39 +28,54 @@ def part1(i)
 end
 
 
+#def part2(i)
+  #houses = Set.new [[0, 0]]
+  #santa1_position = [0, 0]
+  #santa2_position = [0, 0]
+  #i.each_char.with_index do |char, idx|
+    #next unless %w(< > ^ v).include?(char)
+    #if (idx + 1) % 2 == 0
+      #santa2_position = case char
+                        #when ?<
+                          #[santa2_position[0] - 1, santa2_position[1]]
+                        #when ?>
+                          #[santa2_position[0] + 1, santa2_position[1]]
+                        #when ?^
+                          #[santa2_position[0], santa2_position[1] + 1]
+                        #when ?v
+                          #[santa2_position[0], santa2_position[1] - 1]
+                        #end
+      #houses.add santa2_position
+    #else
+      #santa1_position = case char
+                        #when ?<
+                          #[santa1_position[0] - 1, santa1_position[1]]
+                        #when ?>
+                          #[santa1_position[0] + 1, santa1_position[1]]
+                        #when ?^
+                          #[santa1_position[0], santa1_position[1] + 1]
+                        #when ?v
+                          #[santa1_position[0], santa1_position[1] - 1]
+                        #end
+      #houses.add santa1_position
+    #end
+  #end
+  #houses.size
+#end
+
 def part2(i)
-  houses = Set.new [[0, 0]]
-  santa1_position = [0, 0]
-  santa2_position = [0, 0]
-  i.each_char.with_index do |char, idx|
-    next unless %w(< > ^ v).include?(char)
-    if (idx + 1) % 2 == 0
-      santa2_position = case char
-                        when ?<
-                          [santa2_position[0] - 1, santa2_position[1]]
-                        when ?>
-                          [santa2_position[0] + 1, santa2_position[1]]
-                        when ?^
-                          [santa2_position[0], santa2_position[1] + 1]
-                        when ?v
-                          [santa2_position[0], santa2_position[1] - 1]
-                        end
-      houses.add santa2_position
-    else
-      santa1_position = case char
-                        when ?<
-                          [santa1_position[0] - 1, santa1_position[1]]
-                        when ?>
-                          [santa1_position[0] + 1, santa1_position[1]]
-                        when ?^
-                          [santa1_position[0], santa1_position[1] + 1]
-                        when ?v
-                          [santa1_position[0], santa1_position[1] - 1]
-                        end
-      houses.add santa1_position
-    end
+  acc = {
+    s1: [0, 0],
+    s2: [0, 0],
+    houses: Set.new [[0, 0]]
+  }
+  i.split('')
+    .reduce(acc).with_index do |acc, input, idx|
+      pos = idx & 1
+      case input
+      when ?< acc[
+      end
   end
-  houses.size
 end
 
 ####
